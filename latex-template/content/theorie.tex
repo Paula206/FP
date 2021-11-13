@@ -1,0 +1,152 @@
+\section{Theorie}
+\label{sec:Theorie}
+
+\subsection{Zielsetzung}
+In diesen Versuch geht es um das allgemeien Relaxationsverhalten eines RC-Kreises.
+
+\subsection{Relaxationsverhalten des RC-Kreises}
+Eine Relaxionserscheinung beschreibt das Verhalten eines Systemes, dass seinen Ausgangszustand zunächst verlässt und 
+dann nicht-oszillatorisch in seinen Ausgangszustand zurückkehrt.
+Dabei ist die Geschwindigkeit der Änderung einer physikalischen Größe $A$ proportional zur 
+Abweichung der Größe $A$.
+
+
+\subsection{Auf- und Entladevorgang im RC-Kreis}
+Ein Beispiel für so einen Vorgang sind die Aufladung und Entladung eines Kondensators über einen 
+Widerstand $R$.
+
+Dabei liegt zwischen den Platten eines Kondesators die Spannung 
+    \begin{equation}
+        \label{eq:sp}
+        U_C = \dfrac{Q}{C}
+    \end{equation} 
+\noindent an.
+Daraus lässt sich für den Strom die Gleichung 
+   \begin{equation}
+       \label{eq:st}
+       I = \dfrac{U_C}{R}.
+   \end{equation}
+\noindent herleiten.
+
+\noindent Es fließt über das Zeitintervall $dt$ die Ladung $I dt$ über. Also ändert sich die Ladung der Platten
+des Kondensators mit $dQ=-I\ dt$ .
+
+\noindent Aus den aufgeführten Gleichung kann nun eine Differentialgleichung für den zeitlichen 
+Verlauf der Ladung des Kondensators bestimmt werden.
+
+\begin{equation}
+    \dfrac{dQ}{dt}= -\dfrac{1}{RC} Q{t}
+\end{equation}
+
+\noindent Die Ladung auf dem Kondensator konvergiert für große Zeit gegen 0. Daher wird durch 
+Integration der Entladevorgang durch 
+\begin{equation}
+    \label{eq:dgl}
+    Q(t)=Q(0)e^{\dfrac{-t}{RC}}
+\end{equation}
+\noindent beschrieben.
+
+
+\noindent Für den Aufladevorgang gelten die Randbedingung  $Q(0)=0$ und $Q(\infty)=CU_0$. 
+Daher lässt sich die Differentialgleichung durch 
+
+\begin{equation}
+    Q(t) = CU_0(1-e^{\dfrac{-t}{RC}})
+\end{equation}
+\noindent lösen.
+\noindent Hier wird der Ausdruck $RC$ als Zeitkonstante bezeichnet. Sie ist ein Maß für die Relaxationsgeschwindigkeit.
+Während des Zeitintervalls $\Delta T=RC$ sinkt die Ladung des Kondensators um den Faktor
+ $\dfrac{Q(t=RC)}{Q(0)}=\dfrac{1}{e}$.
+
+\noindent Nach $\Delta T = 2,3RC$ sind 10 \% des Ausgangswertes und nach $\Delta T = 4,6RC$ sind 1\% erreicht.
+
+\subsection{Relaxationsverhalten unter Einfluss angelegter periodischer Spannung}
+Ein mechanisches System, das unter Einfluss einer Kraft mit sinusförmiger Zeitabhängigkeit ist, lässt sich analog zu einem RC-Kreis mit 
+einer Sinusspannung beschreiben.
+Die Spannung $U(t)$ kann beschrieben werden durch 
+\begin{equation*}
+    U(t) = U_0 \text{cos}( \omega t) .
+\end{equation*}
+
+\noindent Wenn die Kreisfrequenz $\omega \ll 1/RC$  ist wird die Spannung am Kondensator gleich der Wechselspannung.
+Bei höherer Kreisfrequenz bildet sich zwischen den beiden Spannungen eine Phasenverschiebung $\phi$ und die Amplitude 
+der Kondensatorspannung $U_c$ wird kleiner.
+
+Nun wird der Frequenzabhängigkeit näher betrachtet.
+Als Ansatz wird
+
+\begin{equation}
+    U_{\text{C}}(t) = A(\omega) \text{cos}(\omega t + \phi \{ \omega \} )
+    \label{eqn:7}
+\end{equation}
+
+\noindent gewählt.
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics{schalt3.png}
+%    \caption{Der RC-Schaltkreis mit angelegter Cosinus-Spannung}
+%    \label{fig:schalt3}
+%\end{figure}
+
+\noindent Die Spannung, die in der Abbildung  \ref{fig:schalt3} dargestellten Stromkreises lässt sich  mittels des zweiten Kirchhoffschen Gesetz
+aufstellen.:
+\begin{equation}
+    \label{eq:kirsche}
+    U(t)=U_R(t)+U_C(t) \Leftrightarrow U_0 \cos{\omega t}=I(t)R + 
+    A(\omega)\cos{\omega t + \phi}
+\end{equation}
+\noindent Außerdem kann der Strom $I(t)$ durch 
+\begin{equation}
+    I(t) = \frac{\text{d}Q}{\text{d}t} = C \frac{\text{d}U_\text{C}}{\text{d}t}
+    \label{eqn:9}
+\end{equation}
+\noindent dargestellt werden. Mit  $\omega t = \frac{\pi}{2}$ und der Gleichung \ref{eq:kirsche} lässt sich 
+\begin{equation*}
+    0 = -\omega R C \text{sin} \left( \frac{\pi}{2} + \phi \right) + \text{cos} \left( \frac{\pi}{2} + \phi \right)
+\end{equation*}
+
+\noindent aufstellen.
+Daraus folgt wegen $\text{sin}(\phi + \pi /2 = \text{cos}(\phi))$ und $\text{cos}(\phi + \pi/2 = - \text{sin}
+(\phi))$
+
+\begin{equation}
+    \phi (\omega) = \text{arctan} ( - \omega R C) .
+    \label{eqn:11}
+\end{equation}
+
+\noindent Es zeigt auf, dass $\phi$ für niedrige Werte gegen Null geht  und sich für hohe Frequenzen den Wert $\frac{\pi}{2}$ nähert.
+Für $\omega = \frac{1}{RC}$ ist $\phi = \frac{\pi}{4}$.
+
+Es folgt für $\omega t + \phi = \frac{\pi}{2}$ aus der Gleichung \ref{eq:kirsche}
+
+\begin{equation}
+    A(\omega) = - \frac{\text{sin} \phi}{\omega R C} U_0 .
+    \label{eqn:12}
+\end{equation}
+
+\noindent Aus dieer Gleichung lässt sich nun mithilfe der Beziehung $\text{sin}^2 \phi + \text{cos}^2 \phi = 1$  
+\begin{equation*}
+    A(\omega) = \frac{U_0}{\sqrt{1 + \omega^2 R^2 C^2}} .
+\end{equation*}
+\noindent herleiten.
+Diese beschreibt die Beziehung zwischen der Amplitude der Kondensatorspannung und der Kreisfrequenz der erreger Spannung.
+Es wird aufgezeigt, dass für $\omega \rightarrow 0$ $A(\omega)$ gegen $U(t)$ geht und für $\omega \rightarrow \infty$ verschwindet
+die Amplitude.
+Daher ist der RC-Kreis ein guter Tiefpass.
+
+\subsection{Der RC-Kreis als Integrator}
+Ein weiterer Effekt des RC-Kreises ist die Integration der Spannung. Dafür  muss die Frequenz $\omega \gg \frac{1}{RC}$ und 
+$|U_{\text{c}}| \ll | U_{\text{R}}|$.
+Mithilfe der Gleichung \ref{eqn:9} und 
+
+\begin{equation*}
+    U(t) = I(t) R + U_{\text{C}}(t)
+\end{equation*}
+
+\noindent lässt sich 
+\begin{equation*}
+    U_{\text{C}}(t) = \frac{1}{RC} \int_0^t U(t')\text{d}t' .
+\end{equation*}
+
+\noindent herleiten.
